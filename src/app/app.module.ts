@@ -1,3 +1,4 @@
+import { ApiService } from './services/api/api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,6 +9,10 @@ import { PagesComponent } from './pages/pages.component';
 import { LoginComponent } from './login/login.component';
 import { APP_ROUTES } from './app.routes';
 import { MapaComponent } from './pages/mapa/mapa.component';
+import { InvitadoService } from './services/invitado/invitado.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -20,9 +25,21 @@ import { MapaComponent } from './pages/mapa/mapa.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot({
+      buttonsStyling: false,
+      customClass: 'modal-content',
+      confirmButtonClass: 'btn btn-primary',
+      cancelButtonClass: 'btn'
+    }),
     APP_ROUTES
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    InvitadoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
