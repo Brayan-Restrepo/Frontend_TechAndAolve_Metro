@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InvitadoService } from '../../services/invitado/invitado.service';
 
 @Component({
   selector: 'app-mapa',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _invitadoService: InvitadoService
+  ) { }
 
   ngOnInit() {
+    this._invitadoService.getEstasiones('.json')
+      .subscribe(arg => console.log(arg));
+
   }
 
 }
