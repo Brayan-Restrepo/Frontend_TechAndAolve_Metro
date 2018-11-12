@@ -2,6 +2,7 @@ import { AuthenticateService } from '../services/authenticate/authenticate.servi
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _authenticateService: AuthenticateService
+    private login: LoginService
     ) { }
 
   ngOnInit() {
@@ -32,8 +33,9 @@ export class LoginComponent implements OnInit {
 
   public ingresar(): void {
     if (this.formLogin.valid) {
-      this._authenticateService.postAuthenticate('authenticateUser', this.formLogin.value).subscribe(response => {
-        this.router.navigate(['/']);
+      this.login.iniciarSesion(this.formLogin.value.userName, this.formLogin.value.password)
+      .subscribe(res => {
+        console.log('REspuesta: ' +  res);
       });
     }
   }
