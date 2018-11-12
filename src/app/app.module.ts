@@ -1,3 +1,4 @@
+import { AdminService } from './services/admin/admin.service';
 import { ApiService } from './services/api/api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,7 @@ import { InvitadoService } from './services/invitado/invitado.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+import { HistoricoComponent } from './pages/historico/historico.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
     HeaderComponent,
     PagesComponent,
     LoginComponent,
-    MapaComponent
+    MapaComponent,
+    HistoricoComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
   ],
   providers: [
     ApiService,
-    InvitadoService
+    InvitadoService,
+    AdminService
   ],
   bootstrap: [AppComponent]
 })

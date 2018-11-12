@@ -1,3 +1,21 @@
-<p>
-  login works!
-</p>
+<div class="container mt-5">
+    <div class="card col-4 offset-4 mt-5">
+        <div class="card-body">
+            <form [formGroup]="formLogin" novalidate="novalidate">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre de usuario</label>
+                    <input type="text" class="form-control" placeholder="Nombre de usuario" formControlName="usuario">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Contraseña" formControlName="clave">
+                </div>
+                <div class="row float-right">
+                    <div class="col">
+                        <button class="btn btn-sm btn-success" [disabled]="!formLogin.valid" (click)="ingresar()">Ingresar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
