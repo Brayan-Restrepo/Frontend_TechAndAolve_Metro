@@ -3,13 +3,14 @@ import { CanActivate } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { ApiService } from '../api/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService implements CanActivate {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public apiService: ApiService) {
   }
 
   canActivate() {
@@ -20,8 +21,8 @@ export class LoginService implements CanActivate {
     return sesion;
   }
 
-  iniciarSesion(user: string, password: string) {
-    return of({rol: 'Administrador'}) // || this.http.post('dddd', {user, password})
+  iniciarSesion(user) {
+    return   this.apiService.post<any>('authenticateUser', user) // || of({rol: 'Administrador'})
     .pipe(
       tap(this.guardarSesionLocal.bind(this))
     );
