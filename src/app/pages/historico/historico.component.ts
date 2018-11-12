@@ -15,10 +15,9 @@ export class HistoricoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._adminService.getHistorico('historico.json')
+    this._adminService.getHistorico('historical')
       .subscribe(response => {
         this.historicos = response;
-        console.log(response);
       });
   }
 
