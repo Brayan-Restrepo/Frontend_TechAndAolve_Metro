@@ -19,7 +19,7 @@ export class BuscarComponent implements OnInit {
 
   ngOnInit() {
 
-    this._invitadoService.getEstasiones('.json')
+    this._invitadoService.getEstasiones('underGroundStations')
       .subscribe(responce => {
         this.estaciones = responce;
       });
@@ -48,6 +48,7 @@ export class BuscarComponent implements OnInit {
       });
     } else {
       console.log(this.formRutas.valid);
+      console.log(this.formRutas.value.estacionOrigen);
       console.log(this.formRutas.value.estacionDestino);
     }
   }

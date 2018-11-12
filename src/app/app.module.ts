@@ -1,3 +1,4 @@
+import { AuthenticateService } from './services/authenticate/authenticate.service';
 import { AdminService } from './services/admin/admin.service';
 import { ApiService } from './services/api/api.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -42,7 +43,8 @@ import { HistoricoComponent } from './pages/historico/historico.component';
   providers: [
     ApiService,
     InvitadoService,
-    AdminService
+    AdminService,
+    AuthenticateService
   ],
   bootstrap: [AppComponent]
 })

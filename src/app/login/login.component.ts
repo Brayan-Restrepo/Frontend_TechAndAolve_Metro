@@ -1,3 +1,4 @@
+import { AuthenticateService } from '../services/authenticate/authenticate.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,16 +13,17 @@ export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private _authenticateService: AuthenticateService
     ) { }
 
   ngOnInit() {
     this.formLogin = new FormGroup({
-      'usuario': new FormControl('', [
+      'userName': new FormControl('', [
         Validators.required,
         Validators.minLength(3)
       ]),
-      'clave': new FormControl('', [
+      'password': new FormControl('', [
         Validators.required,
         Validators.minLength(3)
       ])
@@ -29,10 +31,10 @@ export class LoginComponent implements OnInit {
   }
 
   public ingresar(): void {
-    console.log(this.formLogin.valid);
-    console.log(this.formLogin.value);
     if (this.formLogin.valid) {
-      this.router.navigate(['/']);
+      this._authenticateService.postAuthenticate('authenticateUser', this.formLogin.value).subscribe(response => {
+        this.router.navigate(['/']);
+      });
     }
   }
 
