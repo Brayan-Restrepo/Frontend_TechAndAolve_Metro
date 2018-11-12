@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class InvitadoService {
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
   ) { }
 
   public getEstasiones(url: any): Observable<any> {

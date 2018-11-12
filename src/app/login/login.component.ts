@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     console.log(this.formLogin.valid);
     console.log(this.formLogin.value);
     if (this.formLogin.valid) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/mapa']);
     }
   }
 
