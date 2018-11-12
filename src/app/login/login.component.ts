@@ -1,4 +1,3 @@
-import { AuthenticateService } from '../services/authenticate/authenticate.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -36,6 +35,7 @@ export class LoginComponent implements OnInit {
       this.login.iniciarSesion(this.formLogin.value.userName, this.formLogin.value.password)
       .subscribe(res => {
         console.log('REspuesta: ' +  res);
+        this.router.navigate(['']);
       });
     }
   }

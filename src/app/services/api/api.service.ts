@@ -17,8 +17,8 @@ export class ApiService {
   constructor(
     private http: HttpClient
     ) {
-      this.url = 'http://localhost:8090/';
-      // this.url = 'http://192.168.1.16:8090/';
+      // this.url = 'http://localhost:8090/';
+      this.url = 'http://192.168.1.16:8090/';
     }
 
 
