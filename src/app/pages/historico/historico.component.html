@@ -12,10 +12,10 @@
         <tbody>
             <tr *ngFor="let historico of historicos; let i = index">
                 <th scope="row">{{ i+1 }}</th>
-                <td>Estación {{ historico.estacion_origen }}</td>
-                <td>Estación {{ historico.estacion_destino }}</td>
+                <td>Estación {{ historico.stationOrigin }}</td>
+                <td>Estación {{ historico.stationDestiny }}</td>
                 <td class="text-center">
-                    <span class="badge" [ngClass]="{'badge-success': i === 0, 'badge-info': i !== 0}">{{ historico.numero_consulta }}</span>
+                    <span class="badge" [ngClass]="{'badge-success': i === 0, 'badge-info': i !== 0}">{{ historico.count }}</span>
                 </td>
             </tr>
         </tbody>

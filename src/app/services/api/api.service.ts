@@ -17,16 +17,13 @@ export class ApiService {
   constructor(
     private http: HttpClient
     ) {
-      // this.url = 'http://localhost:8080/api/';
-      this.url = 'https://metro-8d0ee.firebaseio.com/';
+      this.url = 'http://localhost:8090/';
+      // this.url = 'http://192.168.1.16:8090/';
     }
 
 
     public get<T>(path: string): Observable<T> {
-      return this.http.get<Response>(this.url + path)
-        .pipe(
-          map( response => response['data'])
-        );
+      return this.http.get<T>(this.url + path);
     }
 
     public post<T>(path: string, data: any): Observable<T> {

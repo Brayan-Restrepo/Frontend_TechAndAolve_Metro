@@ -1,20 +1,20 @@
 <form [formGroup]="formRutas" novalidate="novalidate">
     <div class="row">
-        <div class="col-4 offset-2">
+        <div class="col-lg-4 col-md-5 col-xl-4 offset-lg-2 offset-md-1">
             <div class="form-group">
                 <label for="">Seleccione la estación origen</label>
                 <select class="form-control" formControlName="estacionOrigen">
                       <option value="">Seleccione</option>
-                      <option *ngFor="let estacion of estaciones" [value]="estacion.estacion">Estación {{estacion.estacion}}</option>
+                      <option *ngFor="let estacion of estaciones" [value]="estacion">Estación {{estacion}}</option>
                     </select>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-5 col-xl-4">
             <div class="form-group">
                 <label for="">Seleccione la estación destino</label>
                 <select class="form-control" formControlName="estacionDestino">
                         <option value="">Seleccione</option>
-                        <option *ngFor="let estacion of estaciones" [value]="estacion.estacion">Estación {{estacion.estacion}}</option>
+                        <option *ngFor="let estacion of estaciones" [value]="estacion">Estación {{estacion}}</option>
                     </select>
             </div>
         </div>
