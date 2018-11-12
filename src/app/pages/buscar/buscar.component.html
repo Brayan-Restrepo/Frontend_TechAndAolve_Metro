@@ -1,31 +1,27 @@
-<div class="card">
-    <div class="card-body">
-        <form [formGroup]="formRutas" novalidate="novalidate">
-            <div class="row">
-                <div class="col-4 offset-2">
-                    <div class="form-group">
-                        <label for="">Seleccione la estación origen</label>
-                        <select class="form-control" formControlName="estacionOrigen">
+<form [formGroup]="formRutas" novalidate="novalidate">
+    <div class="row">
+        <div class="col-4 offset-2">
+            <div class="form-group">
+                <label for="">Seleccione la estación origen</label>
+                <select class="form-control" formControlName="estacionOrigen">
                       <option value="">Seleccione</option>
                       <option *ngFor="let estacion of estaciones" [value]="estacion.estacion">Estación {{estacion.estacion}}</option>
                     </select>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="form-group">
-                        <label for="">Seleccione la estación destino</label>
-                        <select class="form-control" formControlName="estacionDestino">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label for="">Seleccione la estación destino</label>
+                <select class="form-control" formControlName="estacionDestino">
                         <option value="">Seleccione</option>
                         <option *ngFor="let estacion of estaciones" [value]="estacion.estacion">Estación {{estacion.estacion}}</option>
                     </select>
-                    </div>
-                </div>
             </div>
-            <div class="row">
-                <div class="col-8 offset-2">
-                    <button class="btn btn-sm btn-success float-right" (click)="buscarRuta()">Buscar ruta</button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <button class="btn btn-sm btn-success float-right" (click)="buscarRuta()">Buscar ruta</button>
+        </div>
+    </div>
+</form>

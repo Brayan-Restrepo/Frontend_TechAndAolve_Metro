@@ -1,3 +1,4 @@
+import { HistoricoComponent } from './pages/historico/historico.component';
 import { MapaComponent } from './pages/mapa/mapa.component';
 
 import { Routes, RouterModule } from '@angular/router';
@@ -15,6 +16,11 @@ const appRoutes: Routes = [
     component: PagesComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'mapa',
+        pathMatch: 'full',
+       },
+      {
         path: 'buscar',
         component:  BuscarComponent
       },
@@ -22,10 +28,14 @@ const appRoutes: Routes = [
         path: 'mapa',
         component:  MapaComponent
       },
+      {
+        path: 'historico',
+        component:  HistoricoComponent
+      },
     ]
   },
   { path: 'login', component: LoginComponent },
-  { path: '**', component: PagesComponent }
+  { path: '**', redirectTo: 'mapa',  pathMatch: 'full' }
 ];
 
 export const APP_ROUTES = RouterModule.forRoot(appRoutes, { useHash: true });

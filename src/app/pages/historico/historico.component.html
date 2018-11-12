@@ -1,0 +1,23 @@
+<div class="col-8 offset-2">
+    <h2 class="mb-3 text-center text-info">Historial de Búsquedas</h2>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Estación Origen</th>
+                <th scope="col">Estación Destino</th>
+                <th scope="col" class="text-center">Numero de Consultas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let historico of historicos; let i = index">
+                <th scope="row">{{ i+1 }}</th>
+                <td>Estación {{ historico.estacion_origen }}</td>
+                <td>Estación {{ historico.estacion_destino }}</td>
+                <td class="text-center">
+                    <span class="badge" [ngClass]="{'badge-success': i === 0, 'badge-info': i !== 0}">{{ historico.numero_consulta }}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

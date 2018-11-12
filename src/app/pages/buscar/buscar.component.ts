@@ -1,7 +1,6 @@
 import { InvitadoService } from './../../services/invitado/invitado.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { switchAll } from 'rxjs/operators';
 import swal from 'sweetalert2';
 
 @Component({
@@ -11,7 +10,7 @@ import swal from 'sweetalert2';
 })
 export class BuscarComponent implements OnInit {
 
-  public estaciones: string;
+  public estaciones;
   public formRutas: FormGroup;
 
   constructor(
