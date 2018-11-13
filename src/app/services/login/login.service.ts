@@ -21,10 +21,13 @@ export class LoginService implements CanActivate {
     return sesion;
   }
 
-  iniciarSesion(user) {
-    return   this.apiService.post<any>('authenticateUser', user) // || of({rol: 'Administrador'})
+  iniciarSesion(data) {
+    return   this.apiService.post<any>('authenticateUser', data) // || of({rol: 'Administrador'})
     .pipe(
-      tap(this.guardarSesionLocal.bind(this))
+      map(response => {
+        this.guardarSesionLocal(response);
+        return response;
+      })
     );
   }
 
@@ -33,7 +36,8 @@ export class LoginService implements CanActivate {
   }
 
   guardarSesionLocal(usuario) {
-    localStorage.setItem('SESSION', usuario.rol);
+    console.log(usuario);
+    localStorage.setItem('SESSION', usuario.userRol);
   }
 
 }

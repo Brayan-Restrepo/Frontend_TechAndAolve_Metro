@@ -17,8 +17,8 @@ export class ApiService {
   constructor(
     private http: HttpClient
     ) {
-      // this.url = 'http://localhost:8090/';
-      this.url = 'http://192.168.42.199:8090/';
+      this.url = 'http://localhost:8090/';
+      // this.url = 'http://192.168.42.199:8090/';
     }
 
 
@@ -27,10 +27,7 @@ export class ApiService {
     }
 
     public post<T>(path: string, data: any): Observable<T> {
-      return this.http.post<Response>(this.url + path, data)
-        .pipe(
-          map(response => response['data'])
-        );
+      return this.http.post<T>(this.url + path, data);
     }
 
     private toURLParams(data: any): string {

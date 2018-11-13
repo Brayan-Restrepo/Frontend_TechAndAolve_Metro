@@ -12,7 +12,11 @@ export class InvitadoService {
     private apiService: ApiService
   ) { }
 
-  public getEstasiones(url: any): Observable<any> {
-    return this.apiService.get<any>(url);
+  public getEstasiones(): Observable<any> {
+    return this.apiService.get<any>('underGroundStations');
+  }
+
+  public postFastestTravel(data: any): Observable<any> {
+    return this.apiService.post<any>('fastestTravel', data);
   }
 }
