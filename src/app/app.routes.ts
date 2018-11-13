@@ -6,12 +6,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { PagesComponent } from './pages/pages.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
+import { LoginService } from './services/login/login.service';
 
 export const ROUTES: Routes = [
 ];
 
 const appRoutes: Routes = [
   {
+    canActivate: [LoginService],
     path: '',
     component: PagesComponent,
     children: [

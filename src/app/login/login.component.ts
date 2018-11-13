@@ -1,6 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private login: LoginService
     ) { }
 
   ngOnInit() {
@@ -29,9 +31,11 @@ export class LoginComponent implements OnInit {
   }
 
   public ingresar(): void {
-    console.log(this.formLogin.valid);
-    console.log(this.formLogin.value);
     if (this.formLogin.valid) {
+      this.login.iniciarSesion(this.formLogin.value.usuario, this.formLogin.value.clave)
+      .subscribe(res => {
+        console.log('REspuesta: ' +  res);
+      });
       this.router.navigate(['/']);
     }
   }
