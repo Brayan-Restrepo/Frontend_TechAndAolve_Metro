@@ -19,14 +19,14 @@ export class BuscarComponent implements OnInit {
 
   ngOnInit() {
 
-    this._invitadoService.getEstasiones('underGroundStations')
+    this._invitadoService.getEstasiones()
       .subscribe(responce => {
         this.estaciones = responce;
       });
 
     this.formRutas = new FormGroup({
-      'estacionOrigen': new FormControl('', Validators.required),
-      'estacionDestino': new FormControl('', Validators.required)
+      'initialStation': new FormControl('', Validators.required),
+      'finalStation': new FormControl('', Validators.required)
     });
 
   }
@@ -39,7 +39,7 @@ export class BuscarComponent implements OnInit {
         text: 'Ingrese las estaciones para continuar',
         confirmButtonText: 'ACEPTAR',
       });
-    } else if (this.formRutas.value.estacionOrigen === this.formRutas.value.estacionDestino) {
+    } else if (this.formRutas.value.initialStation === this.formRutas.value.finalStation) {
       swal({
         type: 'warning',
         title: 'Error',
@@ -47,9 +47,12 @@ export class BuscarComponent implements OnInit {
         confirmButtonText: 'ACEPTAR',
       });
     } else {
+      this._invitadoService.postFastestTravel(this.formRutas.value)
+        .subscribe(response => {
+          console.log(response);
+        });
       console.log(this.formRutas.valid);
-      console.log(this.formRutas.value.estacionOrigen);
-      console.log(this.formRutas.value.estacionDestino);
+      console.log(this.formRutas.value);
     }
   }
 }

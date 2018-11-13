@@ -1,3 +1,4 @@
+import { AdminService } from './services/admin/admin.service';
 import { HistoricoComponent } from './pages/historico/historico.component';
 import { MapaComponent } from './pages/mapa/mapa.component';
 
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
       },
       {
         path: 'historico',
-        component:  HistoricoComponent
+        component:  HistoricoComponent,
+        canActivate: [AdminService]
       },
     ]
   },

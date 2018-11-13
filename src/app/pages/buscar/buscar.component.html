@@ -3,7 +3,7 @@
         <div class="col-lg-4 col-md-5 col-xl-4 offset-lg-2 offset-md-1">
             <div class="form-group">
                 <label for="">Seleccione la estación origen</label>
-                <select class="form-control" formControlName="estacionOrigen">
+                <select class="form-control" formControlName="initialStation">
                       <option value="">Seleccione</option>
                       <option *ngFor="let estacion of estaciones" [value]="estacion">Estación {{estacion}}</option>
                     </select>
@@ -12,7 +12,7 @@
         <div class="col-lg-4 col-md-5 col-xl-4">
             <div class="form-group">
                 <label for="">Seleccione la estación destino</label>
-                <select class="form-control" formControlName="estacionDestino">
+                <select class="form-control" formControlName="finalStation">
                         <option value="">Seleccione</option>
                         <option *ngFor="let estacion of estaciones" [value]="estacion">Estación {{estacion}}</option>
                     </select>
